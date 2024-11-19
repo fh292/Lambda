@@ -1,6 +1,7 @@
 package com.example.lambda.entity;
 
 
+import com.example.lambda.util.SuggestionStatus;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +18,9 @@ public class GuestSuggestionEntity {
     @Column(name="suggestionText")
     private String suggestionText;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="suggestionStatus")
+    private SuggestionStatus suggestionStatus;
 
     public GuestSuggestionEntity() {
     }
@@ -49,5 +53,13 @@ public class GuestSuggestionEntity {
 
     public void setSuggestionText(String suggestionText) {
         this.suggestionText = suggestionText;
+    }
+
+    public SuggestionStatus getSuggestionStatus() {
+        return suggestionStatus;
+    }
+
+    public void setSuggestionStatus(SuggestionStatus suggestionStatus) {
+        this.suggestionStatus = suggestionStatus;
     }
 }
